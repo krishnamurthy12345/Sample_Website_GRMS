@@ -14,6 +14,7 @@ import Home from "./components/pages/Home";
 import Dashboard from "./components/pages/Dashboard";
 import Profile from "./components/pages/Profile";
 import Notification from "./components/pages/Notification";
+import AuthMonitor from "./components/authMonitor"; // Import AuthMonitor
 
 function App() {
   console.log('djdjjd');
@@ -21,6 +22,7 @@ function App() {
   return (
     <Router>
       <Header />
+      <AuthMonitor />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/dashboard" element={<Dashboard />} />

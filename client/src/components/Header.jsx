@@ -19,8 +19,18 @@ function Header() {
 
 
   useEffect(() => {
-    const token = localStorage.getItem('accessToken');
-    setIsLoggedIn(!!token); // Convert token to boolean
+    const checkLoginStatus = () => {
+      const token = localStorage.getItem("accessToken");
+      setIsLoggedIn(!!token);
+    };
+  
+    checkLoginStatus(); // Check on mount status
+  
+    // will listen for token updates
+    window.addEventListener("storage", checkLoginStatus);
+    return () => {
+      window.removeEventListener("storage", checkLoginStatus);
+    };
   }, []);
   
 
